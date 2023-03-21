@@ -38,28 +38,6 @@ function Quote(){
 });
 }
 
-function getQuotes() {
-  return $.ajax({
-    headers: {
-      Accept: 'application/json'
-    },
-    url: 'https://api.api-ninjas.com/v1/quotes?category=love',
-    success: function (jsonQuotes) {
-      if (typeof jsonQuotes === 'string') {
-        quotesData = JSON.parse(jsonQuotes);
-        console.log('quotesData');
-        console.log(quotesData);
-      }
-    }
-  });
-}
-
-function getRandomQuote() {
-  return quotesData.quotes[
-    Math.floor(Math.random() * quotesData.quotes.length)
-  ];
-}
-
 function getQuote() {
   let randomQuote = Quote();
 

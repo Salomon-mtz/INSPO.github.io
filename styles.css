@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -98,4 +99,42 @@ body {
 }
 #quote-box .buttons .button#new-quote {
   float: right;
+}
+
+
+.search{
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+  padding-bottom: 40px;
+
+  
+}
+
+.search input{
+
+  height: 45px;
+  width: 545px;
+  text-indent: 15px;
+  border: 2px solid #d6d4d4;
+  border-radius: 40px;
+
+
+}
+
+.search .fa-search{
+  font-size: 20px;
+
+}
+
+.search button{
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 60px;
+  border-radius: 15px;
+  background-color: white;
+  border: none;
+
 }

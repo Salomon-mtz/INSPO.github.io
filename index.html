@@ -6,10 +6,25 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
-    <title>FCC : Random Quote Machine</title>
+    <title>Random quote</title>
   </head>
   <body>
     <div id="wrapper">
+      <div class="container">
+
+        <div class="row height d-flex justify-content-center align-items-center">
+
+          <div class="col-md-8">
+
+            <div class="search">
+              <input type="text" class="form-control" placeholder="Busca tu quote favorita">
+              <button class="btn"><i class="fa fa-search"></i></button>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
       <div id="quote-box">
         <div class="quote-text">
           <i class="fa fa-quote-left"> </i><span id="text"></span>
@@ -24,18 +39,9 @@
           >
             <i class="fa fa-twitter"></i>
           </a>
-          <a
-            class="button"
-            id="tumblr-quote"
-            title="Post this quote on tumblr!"
-            target="_blank"
-          >
-            <i class="fa fa-tumblr"></i>
-          </a>
-          <button class="button" id="new-quote">New quote</button>
+          <button class="button" id="new-quote">Nueva Quote</button>
         </div>
       </div>
-      <div class="footer">hecho por: <a href=""></a></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
