@@ -17,14 +17,47 @@ var currentQuote = '';
 var currentAuthor = '';
 
 function getCategoryQuote() {
-  var category = 'happiness'
+
+  var category = 'happiness';
+  console.log(category);
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
     headers: { 'X-Api-Key': 'iXn9JuqkdRk1iBd0AGgkWg==HiDDaxY6rI0shdun' },
     contentType: 'application/json',
     success: function (result) {
-      console.log(result);
+      console.log(result[0].quote);
+      let quote = result[0].quote;
+      $('.quote-text').animate({ opacity: 0 }, 500, function () {
+        $(this).animate({ opacity: 1 }, 500);
+        $('#text').text(quote);
+        
+      });
+      let author = result[0].author;
+      $('.quote-author').animate({ opacity: 0 }, 500, function () {
+        $(this).animate({ opacity: 1 }, 500);
+        $('#author').html(author);
+      });
+      $('#tweet-quote').attr(
+        'href',
+        'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
+        encodeURIComponent('"' + quote + '" ' + author)
+      );
+      
+      var color = Math.floor(Math.random() * colors.length);
+      $('html body').animate(
+        {
+          backgroundColor: colors[color],
+          color: colors[color]
+        },
+        1000
+      );
+      $('.button').animate(
+        {
+          backgroundColor: colors[color]
+        },
+        1000
+      );
       return result;
     },
     error: function ajaxError(jqXHR) {
@@ -34,49 +67,24 @@ function getCategoryQuote() {
 }
 
 function getQuote() {
-  let quote = quote()[0];s
-
-  currentQuote = randomQuote.quote;
-  currentAuthor = randomQuote.author;
-
-  $('#tweet-quote').attr(
-    'href',
-    'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
-    encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)
-  );
+  getCategoryQuote();
   
-  $('.quote-text').animate({ opacity: 0 }, 500, function () {
-    $(this).animate({ opacity: 1 }, 500);
-    $('#text').text(randomQuote.quote);
-  });
+}
 
-  $('.quote-author').animate({ opacity: 0 }, 500, function () {
-    $(this).animate({ opacity: 1 }, 500);
-    $('#author').html(randomQuote.author);
+function search() {
+  $('#search').click(function() {
+    var value = $('#quote').val();
+    return value;
   });
-
-  var color = Math.floor(Math.random() * colors.length);
-  $('html body').animate(
-    {
-      backgroundColor: colors[color],
-      color: colors[color]
-    },
-    1000
-  );
-  $('.button').animate(
-    {
-      backgroundColor: colors[color]
-    },
-    1000
-  );
+  
 }
 
 $(document).ready(function () {
-  getCategoryQuote().then(() => {
-    getQuote();
-  });
+  getQuote().then(() => {
+    getCategoryQuote();
+});
 
-  $('#new-quote').on('click', getCategoryQuote().then(() => {
+  $('#new-quote').on('click', getQuote().then(() => {
     getQuote();
   }));
 });
