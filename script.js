@@ -13,28 +13,28 @@ var colors = [
   '#73A857'
 ];
 
-var currentQuote = '',
-  currentAuthor = '';
+var currentQuote = '';
+var currentAuthor = '';
 
-
-function Quote(){
+function getCategoryQuote() {
   var category = 'happiness'
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
-    headers: { 'X-Api-Key': 'iXn9JuqkdRk1iBd0AGgkWg==HiDDaxY6rI0shdun'},
+    headers: { 'X-Api-Key': 'iXn9JuqkdRk1iBd0AGgkWg==HiDDaxY6rI0shdun' },
     contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
+    success: function (result) {
+      console.log(result);
+      return result;
     },
     error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
+      console.error('Error: ', jqXHR.responseText);
     }
-});
+  });
 }
 
 function getQuote() {
-  let randomQuote = Quote();
+  let quote = quote()[0];s
 
   currentQuote = randomQuote.quote;
   currentAuthor = randomQuote.author;
@@ -42,18 +42,9 @@ function getQuote() {
   $('#tweet-quote').attr(
     'href',
     'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
-      encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)
+    encodeURIComponent('"' + currentQuote + '" ' + currentAuthor)
   );
-
-  $('#tumblr-quote').attr(
-    'href',
-    'https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=' +
-      encodeURIComponent(currentAuthor) +
-      '&content=' +
-      encodeURIComponent(currentQuote) +
-      '&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button'
-  );
-
+  
   $('.quote-text').animate({ opacity: 0 }, 500, function () {
     $(this).animate({ opacity: 1 }, 500);
     $('#text').text(randomQuote.quote);
@@ -81,9 +72,11 @@ function getQuote() {
 }
 
 $(document).ready(function () {
-  Quote().then(() => {
+  getCategoryQuote().then(() => {
     getQuote();
   });
 
-  $('#new-quote').on('click', getQuote);
+  $('#new-quote').on('click', getCategoryQuote().then(() => {
+    getQuote();
+  }));
 });
