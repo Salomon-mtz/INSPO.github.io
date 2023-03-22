@@ -17,12 +17,11 @@ var currentQuote = '';
 var currentAuthor = '';
 
 function getCategoryQuote() {
+  let inputValue = search(); 
 
-  var category = 'happiness';
-  console.log(category);
   $.ajax({
     method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+    url: 'https://api.api-ninjas.com/v1/quotes?category=' + inputValue,
     headers: { 'X-Api-Key': 'iXn9JuqkdRk1iBd0AGgkWg==HiDDaxY6rI0shdun' },
     contentType: 'application/json',
     success: function (result) {
@@ -72,11 +71,8 @@ function getQuote() {
 }
 
 function search() {
-  $('#search').click(function() {
-    var value = $('#quote').val();
-    return value;
-  });
-  
+  let inputValue = document.getElementById("quote").value; 
+  return inputValue;
 }
 
 $(document).ready(function () {
