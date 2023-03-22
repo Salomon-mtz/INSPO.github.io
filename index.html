@@ -27,7 +27,7 @@
 
               <div class="search">
                 <input type="text" id="quote" name ="quote" class="form-control" placeholder="Busca tu quote favorita">
-                <button id="search" class="btn" onclick="getCategoryQuote()"><i class="fa fa-search"></i></button>
+                <button id="search" class="btn"><i class="fa fa-search"></i></button>
               </div>
               
             </div>
@@ -44,13 +44,18 @@
               class="button"
               id="tweet-quote"
               title="Tweet this quote!"
-              target="_top"
+              target="_blank"
             >
               <i class="fa fa-twitter"></i>
             </a>
             <button class="button" id="new-quote">Nueva Quote</button>
           </div>
         </div>
+        <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v16.0&appId=226824146524710&autoLogAppEvents=1" nonce="tJqloDzE"></script>
+
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
         <div class="footer">Copyright: Sofía Donlucas, Salomón Martínez y Marco Pérez</div>
       </div>
     </div>
