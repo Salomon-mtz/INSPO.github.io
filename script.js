@@ -1,9 +1,3 @@
-/* eslint-disable max-len */
-// eslint-disable-next-line no-unused-vars
-const projectName = 'random-quote-machine';
-let quotesData;
-
-
 var colors = [
   '#16a085',
   '#27ae60',
@@ -18,6 +12,7 @@ var colors = [
   '#77B1A9',
   '#73A857'
 ];
+
 var currentQuote = '',
   currentAuthor = '';
 
