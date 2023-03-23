@@ -85,12 +85,14 @@ $(document).ready(function () {
   })
 
   function imagesearch(){
+    let inputValue = search(); 
     $.ajax({
+      
       method: 'GET',
       beforeSend: function (xhr){
         xhr.setRequestHeader("Authorization", api_key);
       },
-      url:"https://api.pexels.com/v1/search?query="+searchf+"&per_page=1",
+      url:"https://api.pexels.com/v1/search?query="+inputValue+"&per_page=1",
       
       success:function(data){
         console.log(data)
