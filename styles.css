@@ -79,3 +79,17 @@ color: white;
 img{
   width:100%;
 }
+
+#cookie-banner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 30px;
+  padding: 20px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  color: black;
+}

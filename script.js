@@ -1,3 +1,35 @@
+//Cookie funcionalidad =>
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptCookiesBtn = document.getElementById("accept-cookies-btn");
+
+// Bloque de codigo para hacer que el usuario de click en aceptar cookies
+acceptCookiesBtn.addEventListener("click", () => {
+  // Set a cookie to indicate that the user has accepted cookies
+  document.cookie = "cookies_accepted=true; max-age=86400; path=/";
+
+  // Hide the cookie banner
+  cookieBanner.style.display = "none";
+});
+
+// Bloque de codigo para hacer que al cargar la página revise si ya aceptaron o no las cookies
+window.addEventListener("load", () => {
+  // Check if the "cookies_accepted" cookie has been set
+  const cookiesAccepted = document.cookie.includes("cookies_accepted=true");
+  cookieBanner.style.display = 'block';
+
+  // If the cookie has been set, hide the cookie banner
+  if (cookiesAccepted) {
+    cookieBanner.style.display = "none";
+  }
+  else {
+    acceptCookiesBtn.addEventListener('click', function () {
+      cookieBanner.style.display = 'none';
+    });
+  }
+
+});
+
+
 var colors = [
   '#16a085',
   '#27ae60',
