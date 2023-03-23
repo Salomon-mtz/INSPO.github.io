@@ -76,6 +76,38 @@ function search() {
 }
 
 $(document).ready(function () {
+  var api_key = "adOoY176SoiR0hmoVtIPS3kRT25pHPc3gA4zjoOYiPzIirsvo9Qq1UMX"
+  var image = ''
+  $("#form").submit(function(event){
+    event.preventDefault()
+    var searchf = $("#quote").val()
+    imagesearch()
+  })
+
+  function imagesearch(){
+    $.ajax({
+      method: 'GET',
+      beforeSend: function (xhr){
+        xhr.setRequestHeader("Authorization", api_key);
+      },
+      url:"https://api.pexels.com/v1/search?query="+searchf+"&per_page=1",
+      
+      success:function(data){
+        console.log(data)
+        console.log(searchf)
+        data.photos.forEach(photo => {
+          image = `
+          <img src="${photo.src.original}" width="400" height="300"/>
+          `
+          $("#images").append(image)
+        });
+      },
+      error:function(error){
+        console.log(error)
+      }
+    })
+  }
+
   getQuote().then(() => {
     getCategoryQuote();
 });
@@ -83,4 +115,5 @@ $(document).ready(function () {
   $('#new-quote').on('click', getQuote().then(() => {
     getQuote();
   }));
+  
 });
