@@ -19,21 +19,16 @@
       </div>
       <div class="container" id="">
         <h1>Quote del día</h1>
-        <div class="container">
-
+        <form class="container" id="form">
           <div class="row height d-flex justify-content-center align-items-center">
-
             <div class="col-md-8">
-
               <div class="search">
                 <input type="text" id="quote" name ="quote" class="form-control" placeholder="Busca tu quote favorita">
-                <button id="search" class="btn" onclick="getCategoryQuote()"><i class="fa fa-search"></i></button>
+                <button type="submit" id="search" class="btn" onclick="getCategoryQuote()"><i class="fa fa-search"></i></button>
               </div>
-              
             </div>
-            
           </div>
-        </div>
+        </form>
         <div id="quote-box">
           <div class="quote-text">
             <i class="fa fa-quote-left"> </i><span id="text"></span>
@@ -48,14 +43,26 @@
             >
               <i class="fa fa-twitter"></i>
             </a>
-            <button class="button" onclick="getCategoryQuote()" id="new-quote">Nueva Quote</button>
+            <button class="button" onclick="getCategoryQuote()"  onclick="imagesearch()" id="new-quote">Nueva Quote</button>
           </div>
         </div>
-        <!-- Load Facebook SDK for JavaScript -->
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v16.0&appId=226824146524710&autoLogAppEvents=1" nonce="tJqloDzE"></script>
+        <form class="searchnone">
+          <div class="form-group">
+            <input type="text" class="form-control" id="searchf">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-danger" value="Search">
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="images">
 
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+            </div>
+
+          </div>
+        </div>
+
         <div class="footer">Copyright: Sofía Donlucas, Salomón Martínez y Marco Pérez</div>
       </div>
     </div>
