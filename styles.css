@@ -55,12 +55,7 @@ opacity: 0.9;
 } 
 
 
-
-
-
-
-
-.search.row{
+.search{
 padding-bottom: 40px;
 justify-content: center;
 }
@@ -70,5 +65,17 @@ text-align: center;
 display: block;
 margin: 15px auto 30px auto;
 font-size: 0.8em;
-color: #fff;
+color: white;
+}
+
+#h1{
+  color: white;
+}
+
+.bi-quote{
+  font-size: 40px;
+}
+
+img{
+  width:100%;
 }
