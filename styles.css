@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +31,7 @@ body {
   font-size: 0.8em;
   color: #fff;
 }
+
 .footer a {
   font-weight: 500;
   text-decoration: none;
@@ -44,6 +46,7 @@ body {
   display: table;
   background-color: #fff;
 }
+
 #quote-box .quote-text {
   text-align: center;
   width: 450px;
@@ -52,10 +55,12 @@ body {
   font-weight: 500;
   font-size: 1.75em;
 }
+
 #quote-box .quote-text i {
   font-size: 1em;
   margin-right: 0.4em;
 }
+
 #quote-box .quote-author {
   width: 450px;
   height: auto;
@@ -64,11 +69,13 @@ body {
   font-size: 1em;
   text-align: right;
 }
+
 #quote-box .buttons {
   width: 450px;
   margin: auto;
   display: block;
 }
+
 #quote-box .buttons .button {
   height: 38px;
   border: none;
@@ -82,9 +89,11 @@ body {
   opacity: 1;
   cursor: pointer;
 }
+
 #quote-box .buttons .button:hover {
   opacity: 0.9;
 }
+
 #quote-box .buttons .button#tweet-quote,
 #quote-box .buttons .button#tumblr-quote {
   float: left;
@@ -96,20 +105,21 @@ body {
   height: 30px;
   width: 40px;
 }
+
 #quote-box .buttons .button#new-quote {
   float: right;
 }
 
 
-.search{
+.search {
   position: relative;
   box-shadow: 0 0 40px rgba(51, 51, 51, .1);
   padding-bottom: 40px;
 
-  
+
 }
 
-.search input{
+.search input {
 
   height: 45px;
   width: 545px;
@@ -120,12 +130,12 @@ body {
 
 }
 
-.search .fa-search{
+.search .fa-search {
   font-size: 20px;
 
 }
 
-.search button{
+.search button {
 
   position: absolute;
   top: 5px;
@@ -138,7 +148,7 @@ body {
 
 }
 
-h1{
+h1 {
   color: white;
   text-align: center;
   padding-bottom: 30px;
@@ -146,14 +156,24 @@ h1{
 
 }
 
-.logo{
+.logo {
   text-align: center;
 }
 
-.searchnone{
+.searchnone {
   display: none;
 }
 
+#cookie-banner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-

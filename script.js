@@ -1,3 +1,34 @@
+//Cookie funcionalidad =>
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptCookiesBtn = document.getElementById("accept-cookies-btn");
+
+// Bloque de codigo para hacer que el usuario de click en aceptar cookies
+acceptCookiesBtn.addEventListener("click", () => {
+  // Set a cookie to indicate that the user has accepted cookies
+  document.cookie = "cookies_accepted=true; max-age=86400; path=/";
+
+  // Hide the cookie banner
+  cookieBanner.style.display = "none";
+});
+
+// Bloque de codigo para hacer que al cargar la página revise si ya aceptaron o no las cookies
+window.addEventListener("load", () => {
+  // Check if the "cookies_accepted" cookie has been set
+  const cookiesAccepted = document.cookie.includes("cookies_accepted=true");
+  cookieBanner.style.display = 'block';
+
+  // If the cookie has been set, hide the cookie banner
+  if (cookiesAccepted) {
+    cookieBanner.style.display = "none";
+  }
+  else {
+    acceptCookiesBtn.addEventListener('click', function () {
+      cookieBanner.style.display = 'none';
+    });
+  }
+
+});
+
 var colors = [
   '#16a085',
   '#27ae60',
@@ -17,12 +48,12 @@ var currentQuote = '';
 var currentAuthor = '';
 
 function getCategoryQuote() {
-  let inputValue = search(); 
+  let inputValue = search();
 
   $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/quotes?category=' + inputValue,
-    headers: { 'X-Api-Key': 'iXn9JuqkdRk1iBd0AGgkWg==HiDDaxY6rI0shdun' },
+    headers: { 'X-Api-Key': 'pUW1banLYAu8q8W6WcAsHg==XAVQsU2A1TzAroPg' },
     contentType: 'application/json',
     success: function (result) {
       console.log(result[0].quote);
@@ -30,7 +61,7 @@ function getCategoryQuote() {
       $('.quote-text').animate({ opacity: 0 }, 500, function () {
         $(this).animate({ opacity: 1 }, 500);
         $('#text').text(quote);
-        
+
       });
       let author = result[0].author;
       $('.quote-author').animate({ opacity: 0 }, 500, function () {
@@ -42,7 +73,7 @@ function getCategoryQuote() {
         'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
         encodeURIComponent('"' + quote + '" ' + author)
       );
-      
+
       var color = Math.floor(Math.random() * colors.length);
       $('html body').animate(
         {
@@ -67,34 +98,34 @@ function getCategoryQuote() {
 
 function getQuote() {
   getCategoryQuote();
-  
+
 }
 
 function search() {
-  let inputValue = document.getElementById("quote").value; 
+  let inputValue = document.getElementById("quote").value;
   return inputValue;
 }
 
 $(document).ready(function () {
   var api_key = "adOoY176SoiR0hmoVtIPS3kRT25pHPc3gA4zjoOYiPzIirsvo9Qq1UMX"
   var image = ''
-  $("#form").submit(function(event){
+  $("#form").submit(function (event) {
     event.preventDefault()
     var searchf = $("#quote").val()
     imagesearch()
   })
 
-  function imagesearch(){
-    let inputValue = search(); 
+  function imagesearch() {
+    let inputValue = search();
     $.ajax({
-      
+
       method: 'GET',
-      beforeSend: function (xhr){
+      beforeSend: function (xhr) {
         xhr.setRequestHeader("Authorization", api_key);
       },
-      url:"https://api.pexels.com/v1/search?query="+inputValue+"&per_page=1",
-      
-      success:function(data){
+      url: "https://api.pexels.com/v1/search?query=" + inputValue + "&per_page=1",
+
+      success: function (data) {
         console.log(data)
         console.log(searchf)
         data.photos.forEach(photo => {
@@ -104,7 +135,7 @@ $(document).ready(function () {
           $("#images").append(image)
         });
       },
-      error:function(error){
+      error: function (error) {
         console.log(error)
       }
     })
@@ -112,10 +143,10 @@ $(document).ready(function () {
 
   getQuote().then(() => {
     getCategoryQuote();
-});
+  });
 
   $('#new-quote').on('click', getQuote().then(() => {
     getQuote();
   }));
-  
+
 });
