@@ -51,7 +51,7 @@ function getCategoryQuote() {
         },
         1000
       );
-      $('.button').animate(
+      $('#search').animate(
         {
           backgroundColor: colors[color]
         },
