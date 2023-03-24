@@ -71,8 +71,10 @@ function getCategoryQuote() {
       });
       $('#tweet-quote').attr(
         'href',
-        'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' +
-        encodeURIComponent('"' + quote + '" ' + author)
+        'https://twitter.com/intent/tweet?text='+
+        encodeURIComponent('"' + quote + '" ' + author) 
+        + '&hashtags='+ inputValue +
+        '&url='+nueva
       );
       
       var color = Math.floor(Math.random() * colors.length);
@@ -116,6 +118,10 @@ $(document).ready(function () {
     imagesearch()
   })
 
+  function changeScr(valor) {
+    document.getElementById("images").src=valor;
+  }
+
   function imagesearch(){
     let inputValue = search(); 
     $.ajax({
@@ -130,10 +136,8 @@ $(document).ready(function () {
         console.log(data)
         console.log(searchf)
         data.photos.forEach(photo => {
-          image = `
-          <img src="${photo.src.original}" width="400" height="300"/>
-          `
-          $("#images").append(image)
+          nueva = photo.src.original
+          changeScr(nueva)
         });
       },
       error:function(error){
